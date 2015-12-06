@@ -23,7 +23,9 @@ end
 def off(x,y)
     (x[1]..y[1]).each do |yi|
         (x[0]..y[0]).each do |xi|
-            @lights[xi][yi] -= 0
+            if @lights[xi][yi] > 0 
+                @lights[xi][yi] -= 1
+            end
         end
     end
 end
@@ -31,7 +33,7 @@ end
 def toggle(x,y)
     (x[1]..y[1]).each do |yi|
         (x[0]..y[0]).each do |xi|
-            @lights[xi][yi] = (@lights[xi][yi] == 0 ? 1 : 0)
+            @lights[xi][yi] += 2
         end
     end
 end
